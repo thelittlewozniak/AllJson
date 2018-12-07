@@ -4,7 +4,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 public class Serialize {
-    public static String Serialize(Class serial){
+    public static String Serialize(Object object){
+        var serial=object.getClass();
         StringBuilder string =new StringBuilder("{");
         var fields =serial.getDeclaredFields();
         Object t=null;
@@ -109,9 +110,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -126,9 +126,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -143,9 +142,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -160,9 +158,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -177,9 +174,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -194,9 +190,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -212,9 +207,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -230,9 +224,8 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         string.append(tab[i]);
-                                        if(j<tab.length-1){
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -247,10 +240,12 @@ public class Serialize {
                                     String[] tab=(String[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
-                                        string.append("\""+tab[i]+"\"");
-                                        if(j<tab.length-1){
+                                        if(tab[i]==null)
+                                            string.append(tab[i]);
+                                        else
+                                            string.append("\""+tab[i]+"\"");
+                                        if(j<tab.length-1)
                                             string.append(",");
-                                        }
                                     }
                                     string.append("]");
                                 }
@@ -258,6 +253,22 @@ public class Serialize {
                                     e.printStackTrace();
                                 }
                                 break;
+                            default:
+                                try {
+                                    fields[i].setAccessible(true);
+                                    Object[] tab = (Object[]) fields[i].get(t);
+                                    string.append("\""+fields[i].getName()+"\":[");
+                                    for(int j=0;j<tab.length;j++){
+                                        if(tab[i]!=null)
+                                            string.append(Serialize.Serialize(tab[i]));
+                                        if(j<tab.length-1)
+                                            string.append(",");
+                                    }
+                                    string.append("]");
+                                }
+                                catch(IllegalAccessException e){
+                                    e.printStackTrace();
+                                }
                         }
                     }
                     else if(fields[i].getType().equals(List.class)){
@@ -272,25 +283,57 @@ public class Serialize {
                         }
                         for(int j=0;j<tab.size();j++){
                             Object item=tab.get(j);
-                            if(item.getClass().equals(String.class)){
-                                string.append("\""+item.toString()+"\"");
+                            switch (item.getClass().toString()){
+                                case "class java.lang.Integer":
+                                    var dataInt=(Integer) item;
+                                    string.append(dataInt);
+                                    break;
+                                case "class java.lang.Long":
+                                    var dataLong=(Long) item;
+                                    string.append(dataLong);
+                                    break;
+                                case "class java.lang.short":
+                                    var dataShort=(Short) item;
+                                    string.append(dataShort);
+                                    break;
+                                case "class java.lang.Float":
+                                    var dataFloat=(Float) item;
+                                    string.append(dataFloat);
+                                    break;
+                                case "class java.lang.Double":
+                                    var dataDouble=(Double) item;
+                                    string.append(dataDouble);
+                                    break;
+                                case "class java.lang.Boolean":
+                                    var dataBoolean=(Boolean) item;
+                                    string.append(dataBoolean);
+                                    break;
+                                case "class java.lang.String":
+                                    var dataString=(String) item;
+                                    string.append("\""+dataString+"\"");
+                                    break;
+                                default:
+                                    string.append(Serialize.Serialize(item));
                             }
-                            else{
-                                string.append(item.toString());
-                            }
-                            if(j<tab.size()-1){
+                            if(j<tab.size()-1)
                                 string.append(",");
-                            }
                         }
                         string.append("]");
                     }
+                    else{
+                        try{
+                            string.append("\""+fields[i].getName()+"\":");
+                            string.append(Serialize.Serialize(fields[i].get(t)));
+                        }
+                        catch(IllegalAccessException e){
+                            e.printStackTrace();
+                        }
+                    }
             }
-            if(i<fields.length-1){
+            if(i<fields.length-1)
                 string.append(",");
-            }
         }
         string.append("}");
-        System.out.println(string);
-        return null;
+        return string.toString();
     }
 }
