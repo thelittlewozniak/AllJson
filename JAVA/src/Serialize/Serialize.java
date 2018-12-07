@@ -1,7 +1,7 @@
 package Serialize;
 import java.util.List;
 
-public class Serialize {
+public class Serialize implements iSerialize {
     public static String serialize(Object object){
         //Get the Class of the Object
         var serial=object.getClass();
