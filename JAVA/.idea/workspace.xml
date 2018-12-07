@@ -7,16 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0198d278-fca3-45d0-afa3-50566c4db8bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/JAVA_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Serialize/PireJSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../untitled/.idea/libraries/PIRE_JSON.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../untitled/src/CLient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serialize/Serialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serialize/Serialize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serialize/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Serialize/Test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Serialize/PireJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Serialize/PireJSON.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,47 +29,45 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="5" />
+          <entry key="java" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5018" />
+          <entry key="java" value="5249" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5018" />
+          <entry key="JAVA" value="5249" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Serialize/Serialize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="238">
+              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serialize/PireJSON.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
               <folding>
                 <element signature="e#97#98#0" expanded="true" />
                 <element signature="e#134#135#0" expanded="true" />
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#203#204#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,9 +94,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Serialize/Test2.java" />
+        <option value="$PROJECT_DIR$/src/PireJSON.java" />
         <option value="$PROJECT_DIR$/src/Serialize/Test.java" />
         <option value="$PROJECT_DIR$/src/Serialize/Serialize.java" />
-        <option value="$PROJECT_DIR$/src/PireJSON.java" />
         <option value="$PROJECT_DIR$/src/Serialize/PireJSON.java" />
       </list>
     </option>
@@ -145,6 +135,12 @@
             </path>
             <path>
               <item name="Pire.JSON" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Serialize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pire.JSON" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -158,7 +154,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544192774824" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544193858697" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Library/Java/PIRE.JSON.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -216,12 +212,12 @@
       <option name="presentableId" value="Default" />
       <updated>1544123462381</updated>
       <workItem from="1544123472081" duration="5903000" />
-      <workItem from="1544168124939" duration="14776000" />
+      <workItem from="1544168124939" duration="15851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20679000" />
+    <option name="totallyTimeSpent" value="21754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="-8" width="1843" height="1096" extended-state="6" />
@@ -265,16 +261,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Serialize/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pire/JSON.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -293,23 +279,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Serialize/PireJSON.java">
+    <entry file="file://$PROJECT_DIR$/src/Serialize/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <element signature="e#97#98#0" expanded="true" />
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#203#204#0" expanded="true" />
+            <element signature="e#87#88#0" expanded="true" />
+            <element signature="e#106#107#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serialize/Serialize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="238">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Serialize/PireJSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="e#97#98#0" expanded="true" />
+            <element signature="e#134#135#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
