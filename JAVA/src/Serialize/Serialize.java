@@ -1,10 +1,8 @@
 package Serialize;
-
-import java.lang.reflect.Field;
 import java.util.List;
 
 public class Serialize {
-    public static String Serialize(Object object){
+    public static String serialize(Object object){
         //Get the Class of the Object
         var serial=object.getClass();
         // Begin the string of JSON
@@ -249,7 +247,7 @@ public class Serialize {
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
                                         if(tab[i]!=null)
-                                            string.append(Serialize.Serialize(tab[i]));
+                                            string.append(Serialize.serialize(tab[i]));
                                         if(j<tab.length-1)
                                             string.append(",");
                                     }
@@ -302,7 +300,7 @@ public class Serialize {
                                     string.append("\""+dataString+"\"");
                                     break;
                                 default:
-                                    string.append(Serialize.Serialize(item));
+                                    string.append(Serialize.serialize(item));
                             }
                             if(j<tab.size()-1)
                                 string.append(",");
@@ -313,7 +311,7 @@ public class Serialize {
                     else{
                         try{
                             string.append("\""+fields[i].getName()+"\":");
-                            string.append(Serialize.Serialize(fields[i].get(t)));
+                            string.append(Serialize.serialize(fields[i].get(t)));
                         }
                         catch(IllegalAccessException e){
                             e.printStackTrace();
