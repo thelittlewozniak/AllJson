@@ -16,7 +16,6 @@ public class Serialize {
         }
         for(int i = 0; i< fields.length; i++){
             var s= fields[i].getType();
-            System.out.println(s.toString());
             switch(s.toString()){
                 case "int":
                     try{
@@ -102,7 +101,6 @@ public class Serialize {
                     break;
                 default:
                     if(fields[i].getType().isArray()){
-                        System.out.println(fields[i].getType().getComponentType());
                         switch (fields[i].getType().getComponentType().toString()){
                             case "int":
                                 try{
@@ -263,7 +261,28 @@ public class Serialize {
                         }
                     }
                     else if(fields[i].getType().equals(List.class)){
-                        string.append("list");
+                        fields[i].setAccessible(true);
+                        string.append("\""+fields[i].getName()+"\":[");
+                        List tab=null;
+                        try{
+                            tab=(List)fields[i].get(t);
+                        }
+                        catch (IllegalAccessException e){
+                            e.printStackTrace();
+                        }
+                        for(int j=0;j<tab.size();j++){
+                            Object item=tab.get(j);
+                            if(item.getClass().equals(String.class)){
+                                string.append("\""+item.toString()+"\"");
+                            }
+                            else{
+                                string.append(item.toString());
+                            }
+                            if(j<tab.size()-1){
+                                string.append(",");
+                            }
+                        }
+                        string.append("]");
                     }
             }
             if(i<fields.length-1){

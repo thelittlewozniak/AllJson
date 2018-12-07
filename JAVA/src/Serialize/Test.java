@@ -6,12 +6,14 @@ import java.util.List;
 public class Test {
     private String name;
     public int age;
-    private List<String> coucou;
+    private List<Double> coucou;
     private String[] s;
     public Test(){
         name="Nathan";
         age=20;
-        coucou=new ArrayList<String>();
+        coucou=new ArrayList<Double>();
+        coucou.add(10.0);
+        coucou.add(20.3);
         s=new String[10];
     }
     public static void main(String[] args){
