@@ -5,9 +5,13 @@ import java.util.List;
 
 public class Serialize {
     public static String Serialize(Object object){
+        //Get the Class of the Object
         var serial=object.getClass();
+        // Begin the string of JSON
         StringBuilder string =new StringBuilder("{");
+        // get All the fields inside the Class of the Object from the params
         var fields =serial.getDeclaredFields();
+        // Get a new instance of the Class from the object
         Object t=null;
         try{
             t=serial.getConstructor().newInstance();
@@ -15,12 +19,13 @@ public class Serialize {
         catch(Exception e){
             e.printStackTrace();
         }
+        // Get data from all field
         for(int i = 0; i< fields.length; i++){
             var s= fields[i].getType();
+            fields[i].setAccessible(true);
             switch(s.toString()){
                 case "int":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+ fields[i].getInt(t));
                     }
                     catch (IllegalAccessException e){
@@ -29,7 +34,6 @@ public class Serialize {
                     break;
                 case "long":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+ fields[i].getLong(t));
                     }
                     catch (IllegalAccessException e){
@@ -38,7 +42,6 @@ public class Serialize {
                     break;
                 case "short":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+fields[i].getShort(t));
                     }
                     catch (IllegalAccessException e){
@@ -56,7 +59,6 @@ public class Serialize {
                     break;
                 case "char":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+fields[i].getChar(t));
                     }
                     catch (IllegalAccessException e){
@@ -65,7 +67,6 @@ public class Serialize {
                     break;
                 case "float":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+fields[i].getFloat(t));
                     }
                     catch (IllegalAccessException e){
@@ -74,7 +75,6 @@ public class Serialize {
                     break;
                 case "double":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+fields[i].getDouble(t));
                     }
                     catch (IllegalAccessException e){
@@ -83,7 +83,6 @@ public class Serialize {
                     break;
                 case "boolean":
                     try{
-                        fields[i].setAccessible(true);
                         string.append("\""+ fields[i].getName()+"\":"+fields[i].getBoolean(t));
                     }
                     catch (IllegalAccessException e){
@@ -92,7 +91,6 @@ public class Serialize {
                     break;
                 case "class java.lang.String":
                     try{
-                        fields[i].setAccessible(true);
                         Object str=fields[i].get(t);
                         string.append("\""+ fields[i].getName()+"\":\""+str+"\"");
                     }
@@ -101,11 +99,11 @@ public class Serialize {
                     }
                     break;
                 default:
+                    // if data is not primitive, we check if it's an array and extract Data
                     if(fields[i].getType().isArray()){
                         switch (fields[i].getType().getComponentType().toString()){
                             case "int":
                                 try{
-                                    fields[i].setAccessible(true);
                                     int[] tab=(int[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -121,7 +119,6 @@ public class Serialize {
                                 break;
                             case "long":
                                 try{
-                                    fields[i].setAccessible(true);
                                     long[] tab=(long[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -137,7 +134,6 @@ public class Serialize {
                                 break;
                             case "short":
                                 try{
-                                    fields[i].setAccessible(true);
                                     short[] tab=(short[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -153,7 +149,6 @@ public class Serialize {
                                 break;
                             case "byte":
                                 try{
-                                    fields[i].setAccessible(true);
                                     byte[] tab=(byte[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -169,7 +164,6 @@ public class Serialize {
                                 break;
                             case "char":
                                 try{
-                                    fields[i].setAccessible(true);
                                     char[] tab=(char[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -185,7 +179,6 @@ public class Serialize {
                                 break;
                             case "float":
                                 try{
-                                    fields[i].setAccessible(true);
                                     float[] tab=(float[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -202,7 +195,6 @@ public class Serialize {
 
                             case "double":
                                 try{
-                                    fields[i].setAccessible(true);
                                     double[] tab=(double[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -219,7 +211,6 @@ public class Serialize {
 
                             case "boolean":
                                 try{
-                                    fields[i].setAccessible(true);
                                     boolean[] tab=(boolean[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -236,7 +227,6 @@ public class Serialize {
 
                             case "class java.lang.String":
                                 try{
-                                    fields[i].setAccessible(true);
                                     String[] tab=(String[])fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -255,7 +245,6 @@ public class Serialize {
                                 break;
                             default:
                                 try {
-                                    fields[i].setAccessible(true);
                                     Object[] tab = (Object[]) fields[i].get(t);
                                     string.append("\""+fields[i].getName()+"\":[");
                                     for(int j=0;j<tab.length;j++){
@@ -271,8 +260,8 @@ public class Serialize {
                                 }
                         }
                     }
+                    //Checking if data is not primitive and an Array, check if it's a List and extract data
                     else if(fields[i].getType().equals(List.class)){
-                        fields[i].setAccessible(true);
                         string.append("\""+fields[i].getName()+"\":[");
                         List tab=null;
                         try{
@@ -320,6 +309,7 @@ public class Serialize {
                         }
                         string.append("]");
                     }
+                    //If it's not a List,Array or Primitive, we recall the Function to exctract the data of this class
                     else{
                         try{
                             string.append("\""+fields[i].getName()+"\":");
